@@ -1,0 +1,5 @@
+# Carpeta generada por Python para archivos compilados
+__pycache__/
+
+# Carpeta del entorno virtual
+estrella/

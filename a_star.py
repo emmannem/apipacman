@@ -39,7 +39,7 @@ def a_estrella(mapa, inicio, final):
         for dx, dy in movimientos:
             x_vecino, y_vecino = nodo_actual.x + dx, nodo_actual.y + dy
 
-            if 0 <= x_vecino < mapa.shape[0] and 0 <= y_vecino < mapa.shape[1] and mapa[x_vecino, y_vecino] == 0:
+            if 0 <= x_vecino < mapa.shape[0] and 0 <= y_vecino < mapa.shape[1] and mapa[x_vecino, y_vecino] in [0, 2,3]:
                 vecino = Nodo(x_vecino, y_vecino, nodo_actual)
                 vecino.g = nodo_actual.g + 1
                 vecino.h = heuristica_manhattan(vecino, nodo_final)

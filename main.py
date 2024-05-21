@@ -2,8 +2,19 @@ from fastapi import FastAPI, HTTPException
 from schemas import MapaRequest, MapaResponse
 from a_star import a_estrella
 import numpy as np
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.post("/a-star/")

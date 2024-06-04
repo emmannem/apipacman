@@ -155,12 +155,15 @@ def generate_pacman_map():
             return True
         else:
             return False
+        
+    for i in range(2):
 
 # Primero se aplica los filtros SO (Sin orillas), esto se indica por los parametros 1, 1
-    matriz = LCM(matriz, filtros_SO, 1, 1)
+        matriz = LCM(matriz, filtros_SO, 1, 1)
 
 # Despues se aplican los filtros CO (Con orillas), esto se indica por los parametros 0, 1
-    matriz = LCM(matriz, filtros_CO, 0, 1)
+        matriz = LCM(matriz, filtros_CO, 0, 1)
+
 
     gosth_cel_start_y = int(len(matriz)/2)-1
     gosth_cel_start_x = int(len(matriz)/2)-2

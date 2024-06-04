@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from schemas import MapaRequest, MapaResponse
-from a_star import a_estrella
+from algorithms.a_star import a_estrella
+from algorithms.pacman_map import generate_pacman_map
 import numpy as np
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -32,3 +33,9 @@ async def encontrar_camino(mapa_req: MapaRequest) -> MapaResponse:
             status_code=404, detail="No se encontró un camino válido.")
 
     return {"camino": camino}
+
+
+@app.get("/generate_map/")
+async def get_generated_map():
+    final_map = generate_pacman_map()
+    return {"map": final_map}

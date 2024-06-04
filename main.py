@@ -19,7 +19,9 @@ app.add_middleware(
 
 @app.post("/a-star/")
 async def encontrar_camino(mapa_req: MapaRequest) -> MapaResponse:
+    print(type(mapa_req.mapa),type(mapa_req.inicio),type(mapa_req.final))
     mapa = np.array(mapa_req.mapa)
+
     inicio = mapa_req.inicio
     final = mapa_req.final
 
